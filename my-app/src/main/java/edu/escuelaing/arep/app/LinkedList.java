@@ -8,6 +8,20 @@ public class LinkedList<T> implements Iterable<T> {
 
     Node<T> head, tail;
 
+    private int size;
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public LinkedList() {
+        this.size = 0;
+    }
+
     public Node<T> getHead(){
         return head;
     }
@@ -25,12 +39,14 @@ public class LinkedList<T> implements Iterable<T> {
             tail.setNext(new_node);
             tail = new_node;
         }
+        size++;
 
     }
 
     public void delete(double value){
         if(head!=null && head.getValue().equals(value)){
             head=head.getNext();
+            size--;
         }
         else {
             Node current = head;
@@ -38,11 +54,10 @@ public class LinkedList<T> implements Iterable<T> {
             while((next=current.getNext()) != null){
                 if(next.getValue().equals(value)){
                     current.setNext(next.getNext());
+                    size--;
                     break;
                 }
                 current=current.getNext();
-
-
             }
         }
     }

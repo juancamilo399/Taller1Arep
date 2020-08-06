@@ -41,5 +41,25 @@ public class AppTest
         assertTrue(myLinkedList.head.getValue()==160.0 && myLinkedList.tail.getValue()==1503);
     }
 
+    @Test
+    public void testMeanAndStandardDeviation() throws Exception {
+        LinkedList<Double> myLinkedList = null;
+        myLinkedList=App.makeLinkedList("resources\\examples.txt");
+        Double mean=App.mean(myLinkedList);
+        Double standard_deviation=App.standardDeviation(myLinkedList);
+        assertEquals(550.6,mean,0.001);
+        assertEquals(572.03,standard_deviation,0.001);
+    }
+
+    @Test
+    public void test2MeanAndStandardDeviation() throws Exception {
+        LinkedList<Double> myLinkedList = null;
+        myLinkedList=App.makeLinkedList("resources\\examples2.txt");
+        Double mean=App.mean(myLinkedList);
+        Double standard_deviation=App.standardDeviation(myLinkedList);
+        assertEquals(60.32,mean,0.001);
+        assertEquals(62.26,standard_deviation,0.001);
+    }
+
 
 }
