@@ -4,10 +4,17 @@ package edu.escuelaing.arep.app;
  * Hello world!
  *
  */
-public class App 
+public class App
 {
-    public static void main( String[] args )
+    public static void main(String[] args)
     {
-        System.out.println( "Hello World!" );
+        LinkedList<Double> myLinkedList = new LinkedList<Double>();
+
+        myLinkedList.add(1.0);
+        myLinkedList.add(2.0);
+        myLinkedList.add(3.0);
+
+        for (Double value : myLinkedList)
+            System.out.println(value);
     }
 }
