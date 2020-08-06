@@ -28,6 +28,38 @@ public class LinkedList<T> implements Iterable<T> {
 
     }
 
+    public void delete(double value){
+        if(head!=null && head.getValue().equals(value)){
+            head=head.getNext();
+        }
+        else {
+            Node current = head;
+            Node next = null;
+            while((next=current.getNext()) != null){
+                if(next.getValue().equals(value)){
+                    current.setNext(next.getNext());
+                    break;
+                }
+                current=current.getNext();
+
+
+            }
+        }
+    }
+
+    @Override
+    public String toString() {
+        String string="";
+        Node current = head;
+        Node next = null;
+        while((next=current.getNext()) != null){
+            string+=String.valueOf(current.getValue())+" ";
+            current=current.getNext();
+        }
+        string+=String.valueOf(tail.getValue())+" ";
+        return string;
+    }
+
     public Iterator<T> iterator() {
         return new LinkedListIterator<T>(this);
     }

@@ -1,38 +1,45 @@
 package edu.escuelaing.arep.app;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 
 /**
- * Unit test for simple App.
+ * Unit tests for app
  */
-public class AppTest 
-    extends TestCase
+public class AppTest
+
 {
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
+    @Test
+    public void shouldAdd()
     {
-        super( testName );
+        LinkedList<Double> myLinkedList = new LinkedList<Double>();
+        Double[] values={1.0,2.0,3.0,4.0};
+        boolean flag=false;
+        for (Double value:values) {
+            myLinkedList.add(value);
+            flag=(myLinkedList.tail.getValue()==value);
+        }
+        assertTrue(flag);
     }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
+    @Test
+    public void shouldDelete()
     {
-        return new TestSuite( AppTest.class );
+        LinkedList<Double> myLinkedList = new LinkedList<Double>();
+        Double[] values={1.0,2.0,3.0,4.0};
+        for (Double value:values) myLinkedList.add(value);
+        myLinkedList.delete(2.0);
+        assertEquals("1.0 3.0 4.0 ", myLinkedList.toString());
     }
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
+    @Test
+    public void shouldReadAndAdd() throws Exception {
+        LinkedList<Double> myLinkedList = null;
+        myLinkedList=App.makeLinkedList("resources\\examples.txt");
+        assertTrue(myLinkedList.head.getValue()==160.0 && myLinkedList.tail.getValue()==1503);
     }
+
+
 }
