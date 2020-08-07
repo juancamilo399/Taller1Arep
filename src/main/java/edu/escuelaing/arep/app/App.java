@@ -6,8 +6,8 @@ import java.io.FileReader;
 import java.util.Iterator;
 
 /**
- * Hello world!
- *
+ * App Class
+ * @author Juan Camilo Angel h
  */
 public class App
 {
@@ -27,9 +27,15 @@ public class App
         Double mean = mean(myLinkedList);
         System.out.println("Mean: " + String.valueOf(mean));
         Double standarDev1 = standardDeviation(myLinkedList);
-        System.out.println("Standard Deviation Test Case 1: " + String.valueOf(standarDev1));
+        System.out.println("Standard Deviation" + String.valueOf(standarDev1));
     }
 
+    /**
+     * Creates a linkedlist given its values in an text file
+     * @param testCasePath The path of the file that contain the values
+     * @return  A LinkedList with te values provided
+     * @throws Exception
+     */
     public static LinkedList<Double> makeLinkedList(String testCasePath) throws Exception {
         LinkedList<Double> myLinkedList = new LinkedList<Double>();
         File file = new File(testCasePath);
@@ -45,6 +51,11 @@ public class App
         return myLinkedList;
     }
 
+    /**
+     * Calculates the mean of the values stored in an LinkedList
+     * @param linkedList The linkedlist with the values
+     * @return The mean of the values stored in an LinkedList
+     */
     public static Double mean(LinkedList<Double> linkedList) {
         Double sum = 0.0;
         for(Double value:linkedList){
@@ -54,6 +65,11 @@ public class App
         return ans;
     }
 
+    /**
+     * Calculates the standard deviation of the values stored in an LinkedList
+     * @param linkedList The linkedlist with the values
+     * @return The standard deviation of the values stored in an LinkedList
+     */
     public static Double standardDeviation(LinkedList<Double> linkedList){
         Double mean = mean(linkedList);
         Double sum = 0.0;
