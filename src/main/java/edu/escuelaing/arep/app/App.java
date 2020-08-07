@@ -3,31 +3,35 @@ package edu.escuelaing.arep.app;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.util.Iterator;
+
 
 /**
  * App Class
- * @author Juan Camilo Angel h
+ * @author Juan Camilo Angel Hernandez
  */
 public class App
 {
     public static void main(String[] args)
     {
         LinkedList<Double> myLinkedList = null;
+        LinkedList<Double> myLinkedList2 = null;
         try {
             myLinkedList = makeLinkedList("resources\\examples.txt");
+            myLinkedList2 = makeLinkedList("resources\\examples2.txt");
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        for (Double value : myLinkedList) {
-            System.out.println(value);
-        }
 
-        Double mean = mean(myLinkedList);
-        System.out.println("Mean: " + String.valueOf(mean));
-        Double standarDev1 = standardDeviation(myLinkedList);
-        System.out.println("Standard Deviation" + String.valueOf(standarDev1));
+        double mean = mean(myLinkedList);
+        System.out.println("Mean: " + mean);
+        double standar_deviation = standardDeviation(myLinkedList);
+        System.out.println("Standard Deviation: " + standar_deviation);
+
+        double mean2 = mean(myLinkedList2);
+        System.out.println("Mean: " + mean2);
+        double standar_deviation2 = standardDeviation(myLinkedList2);
+        System.out.println("Standard Deviation: " + standar_deviation2);
     }
 
     /**
@@ -40,7 +44,7 @@ public class App
         LinkedList<Double> myLinkedList = new LinkedList<Double>();
         File file = new File(testCasePath);
         BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
-        Double value;
+        double value;
         String string;
         string = bufferedReader.readLine();
         while( string != null){
@@ -57,12 +61,12 @@ public class App
      * @return The mean of the values stored in an LinkedList
      */
     public static Double mean(LinkedList<Double> linkedList) {
-        Double sum = 0.0;
-        for(Double value:linkedList){
+        double sum = 0.0;
+        for(double value:linkedList){
             sum+=value;
         }
-        Double ans = (sum / linkedList.getSize());
-        return ans;
+        double ans = (sum / linkedList.getSize());
+        return (double)Math.round(ans * 100d) / 100d;
     }
 
     /**
@@ -70,15 +74,15 @@ public class App
      * @param linkedList The linkedlist with the values
      * @return The standard deviation of the values stored in an LinkedList
      */
-    public static Double standardDeviation(LinkedList<Double> linkedList){
-        Double mean = mean(linkedList);
-        Double sum = 0.0;
-        Double x;
-        for (Double value:linkedList){
+    public static double standardDeviation(LinkedList<Double> linkedList){
+        double mean = mean(linkedList);
+        double sum = 0.0;
+        double x;
+        for (double value:linkedList){
             x=value-mean;
             sum+=x*x;
         }
-        Double ans = Math.sqrt(sum/(linkedList.getSize()-1));
+        double ans = Math.sqrt(sum/(linkedList.getSize()-1));
 
         return (double)Math.round(ans * 100d) / 100d;
     }

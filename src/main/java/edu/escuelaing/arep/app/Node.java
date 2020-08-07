@@ -2,6 +2,7 @@ package edu.escuelaing.arep.app;
 
 /**
  * Class that represent a node of the linkedList
+ * @author Juan Camilo Angel Hernandez
  * @param <T> Type of the value of the node
  */
 public class Node<T> {

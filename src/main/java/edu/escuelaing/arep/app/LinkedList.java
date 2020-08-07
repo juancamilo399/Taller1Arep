@@ -73,8 +73,8 @@ public class LinkedList<T> implements Iterable<T> {
             size--;
         }
         else {
-            Node current = head;
-            Node next = null;
+            Node<T> current = head;
+            Node<T> next = null;
             while((next=current.getNext()) != null){
                 if(next.getValue().equals(value)){
                     current.setNext(next.getNext());
@@ -93,15 +93,15 @@ public class LinkedList<T> implements Iterable<T> {
      */
     @Override
     public String toString() {
-        String string="";
-        Node current = head;
-        Node next = null;
+        StringBuilder string= new StringBuilder();
+        Node<T> current = head;
+        Node<T> next = null;
         while((next=current.getNext()) != null){
-            string+=String.valueOf(current.getValue())+" ";
+            string.append(current.getValue()).append(" ");
             current=current.getNext();
         }
-        string+=String.valueOf(tail.getValue())+" ";
-        return string;
+        string.append(tail.getValue()).append(" ");
+        return string.toString();
     }
 
     public Iterator<T> iterator() {
