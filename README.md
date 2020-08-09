@@ -79,13 +79,16 @@ Finally, the following figure shows the results obtained
 
 ![table2](resources/img/results.png)
 
-observing the results we can see that they are equal to the expected ones so the program behaves correctly when making the corresponding calculations.
+Observing the results we can see that these are equal to the expected ones so the program behaves correctly when making the corresponding calculations.
 
 
 ## Built With
 
 * [Maven](https://maven.apache.org/) - Dependency Management
 
+## Inform
+
+* [View inform](https://github.com/juancamilo399/Taller1Arep/blob/master/resources/Inform.pdf)
 
 ## Author
 
